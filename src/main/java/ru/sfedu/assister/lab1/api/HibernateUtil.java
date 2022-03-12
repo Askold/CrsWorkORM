@@ -10,6 +10,19 @@ import org.hibernate.service.ServiceRegistry;
 import ru.sfedu.assister.Constants;
 import ru.sfedu.assister.Utils.ConfigurationUtil;
 import ru.sfedu.assister.lab1.model.*;
+import ru.sfedu.assister.lab2.model.TestEntity;
+import ru.sfedu.assister.lab3.joined_table.ClientJoinedTable;
+import ru.sfedu.assister.lab3.joined_table.TrainerJoinedTable;
+import ru.sfedu.assister.lab3.joined_table.UserJoinedTable;
+import ru.sfedu.assister.lab3.mapped_superclass.ClientMappedSuperClass;
+import ru.sfedu.assister.lab3.mapped_superclass.TrainerMappedSuperClass;
+import ru.sfedu.assister.lab3.mapped_superclass.UserMappedSuperClass;
+import ru.sfedu.assister.lab3.single_table.ClientSingleTable;
+import ru.sfedu.assister.lab3.single_table.TrainerSingleTable;
+import ru.sfedu.assister.lab3.single_table.UserSingleTable;
+import ru.sfedu.assister.lab3.table_per_class.ClientTablePerClass;
+import ru.sfedu.assister.lab3.table_per_class.TrainerTablePerClass;
+import ru.sfedu.assister.lab3.table_per_class.UserTablePerClass;
 
 import java.io.File;
 import java.io.IOException;
@@ -39,15 +52,29 @@ public class HibernateUtil {
 
         MetadataSources metadataSources = new MetadataSources(serviceRegistry);
 
-        //metadataSources.addAnnotatedClass(TestEntity.class);
+        metadataSources.addAnnotatedClass(TestEntity.class);
 
-        metadataSources.addAnnotatedClass(ClientEntity.class);
-        metadataSources.addAnnotatedClass(ExerciseEntity.class);
-        metadataSources.addAnnotatedClass(FeedbackEntity.class);
+//        metadataSources.addAnnotatedClass(ClientEntity.class);
+//        metadataSources.addAnnotatedClass(ExerciseEntity.class);
+//        metadataSources.addAnnotatedClass(FeedbackEntity.class);
+//        metadataSources.addAnnotatedClass(TrainerEntity.class);
+//        metadataSources.addAnnotatedClass(WorkoutEntity.class);
 
-        metadataSources.addAnnotatedClass(TrainerEntity.class);
-        metadataSources.addAnnotatedClass(WorkoutEntity.class);
-        ;
+          metadataSources.addAnnotatedClass(ClientJoinedTable.class);
+          metadataSources.addAnnotatedClass(TrainerJoinedTable.class);
+          metadataSources.addAnnotatedClass(UserJoinedTable.class);
+
+          metadataSources.addAnnotatedClass(ClientMappedSuperClass.class);
+          metadataSources.addAnnotatedClass(TrainerMappedSuperClass.class);
+          metadataSources.addAnnotatedClass(UserMappedSuperClass.class);
+
+          metadataSources.addAnnotatedClass(ClientSingleTable.class);
+          metadataSources.addAnnotatedClass(TrainerSingleTable.class);
+          metadataSources.addAnnotatedClass(UserSingleTable.class);
+
+          metadataSources.addAnnotatedClass(ClientTablePerClass.class);
+          metadataSources.addAnnotatedClass(TrainerTablePerClass.class);
+          metadataSources.addAnnotatedClass(UserTablePerClass.class);
 
         sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
         logger.info("end getSessionFactory()");

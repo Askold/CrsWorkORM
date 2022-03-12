@@ -8,6 +8,8 @@
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
     <property name="show_sql">true</property>
     <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+    <property name="connection.username">newuser</property>
+    <property name="connection.password">password</property>
     <!-- Включить автоматическое управление контекстом сессии -->
     <property name="current_session_context_class">thread</property>
     <!-- Отключение кеша второго уровня -->
@@ -16,17 +18,5 @@
 
     <!-- DB schema will be updated if needed -->
     <property name="hibernate.hbm2ddl.auto">update</property>
-    <mapping class="ru.sfedu.assister.lab3.joined_table.ClientJoinedTable"/>
-    <mapping class="ru.sfedu.assister.lab3.joined_table.TrainerJoinedTable"/>
-    <mapping class="ru.sfedu.assister.lab3.joined_table.UserJoinedTable"/>
-    <mapping class="ru.sfedu.assister.lab3.single_table.ClientSingleTable"/>
-    <mapping class="ru.sfedu.assister.lab3.single_table.TrainerSingleTable"/>
-    <mapping class="ru.sfedu.assister.lab3.single_table.UserSingleTable"/>
-    <mapping class="ru.sfedu.assister.lab3.mapped_superclass.ClientMappedSuperClass"/>
-    <mapping class="ru.sfedu.assister.lab3.mapped_superclass.TrainerMappedSuperClass"/>
-    <mapping class="ru.sfedu.assister.lab3.mapped_superclass.UserMappedSuperClass"/>
-    <mapping class="ru.sfedu.assister.lab3.table_per_class.ClientTablePerClass"/>
-    <mapping class="ru.sfedu.assister.lab3.table_per_class.TrainerTablePerClass"/>
-    <mapping class="ru.sfedu.assister.lab3.table_per_class.UserTablePerClass"/>
   </session-factory>
 </hibernate-configuration>

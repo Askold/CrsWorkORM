@@ -8,6 +8,7 @@ import ru.sfedu.assister.Constants;
 import ru.sfedu.assister.HistoryContent;
 import ru.sfedu.assister.Utils.ConfigurationUtil;
 import ru.sfedu.assister.lab1.model.*;
+import ru.sfedu.assister.DataProviders.model.*;
 
 import java.io.File;
 import java.io.FileWriter;
