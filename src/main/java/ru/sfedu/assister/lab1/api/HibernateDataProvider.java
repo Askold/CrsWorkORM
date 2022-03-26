@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import ru.sfedu.assister.Constants;
+import ru.sfedu.assister.Utils.HibernateUtil;
 
 import java.util.List;
 import java.util.Optional;

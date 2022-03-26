@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import ru.sfedu.assister.Constants;
-import ru.sfedu.assister.lab1.api.HibernateUtil;
+import ru.sfedu.assister.Utils.HibernateUtil;
 import ru.sfedu.assister.lab2.model.TestEntity;
 
 import java.util.ArrayList;

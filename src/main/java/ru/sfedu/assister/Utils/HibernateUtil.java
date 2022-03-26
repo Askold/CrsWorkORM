@@ -1,4 +1,4 @@
-package ru.sfedu.assister.lab1.api;
+package ru.sfedu.assister.Utils;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -8,8 +8,6 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import ru.sfedu.assister.Constants;
-import ru.sfedu.assister.Utils.ConfigurationUtil;
-import ru.sfedu.assister.lab1.model.*;
 import ru.sfedu.assister.lab2.model.TestEntity;
 import ru.sfedu.assister.lab3.joined_table.ClientJoinedTable;
 import ru.sfedu.assister.lab3.joined_table.TrainerJoinedTable;
@@ -23,6 +21,9 @@ import ru.sfedu.assister.lab3.single_table.UserSingleTable;
 import ru.sfedu.assister.lab3.table_per_class.ClientTablePerClass;
 import ru.sfedu.assister.lab3.table_per_class.TrainerTablePerClass;
 import ru.sfedu.assister.lab3.table_per_class.UserTablePerClass;
+import ru.sfedu.assister.lab4.model.*;
+import ru.sfedu.assister.lab5.model.ExerciseEntity;
+import ru.sfedu.assister.lab5.model.WorkoutEntity;
 
 import java.io.File;
 import java.io.IOException;
@@ -75,6 +76,15 @@ public class HibernateUtil {
           metadataSources.addAnnotatedClass(ClientTablePerClass.class);
           metadataSources.addAnnotatedClass(TrainerTablePerClass.class);
           metadataSources.addAnnotatedClass(UserTablePerClass.class);
+
+          metadataSources.addAnnotatedClass(WorkoutMap.class);
+          metadataSources.addAnnotatedClass(WorkoutList.class);
+          metadataSources.addAnnotatedClass(WorkoutComponent.class);
+          metadataSources.addAnnotatedClass(WorkoutSet.class);
+
+          metadataSources.addAnnotatedClass(ru.sfedu.assister.lab5.model.FeedbackEntity.class);
+          metadataSources.addAnnotatedClass(WorkoutEntity.class);
+          metadataSources.addAnnotatedClass(ExerciseEntity.class);
 
         sessionFactory = metadataSources.buildMetadata().buildSessionFactory();
         logger.info("end getSessionFactory()");

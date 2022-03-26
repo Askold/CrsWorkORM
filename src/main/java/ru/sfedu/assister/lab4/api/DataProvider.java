@@ -1,5 +1,4 @@
-package ru.sfedu.assister.lab3.api;
-
+package ru.sfedu.assister.lab4.api;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,15 +10,12 @@ import ru.sfedu.assister.Utils.HibernateUtil;
 
 import java.util.Optional;
 
-public class DataProvider implements IDataProvider {
-
+public class DataProvider implements IDataProvider{
     private static final Logger logger = LogManager.getLogger(DataProvider.class);
-
     @Override
     public <T> boolean insert(T object) {
-
         Transaction transaction = null;
-        try (Session session = getSession(Constants.LAB3_HBN_CFG)) {
+        try (Session session = getSession(Constants.LAB4_HBN_CFG)) {
             transaction = session.beginTransaction();
             session.save(object);
             transaction.commit();
@@ -38,7 +34,7 @@ public class DataProvider implements IDataProvider {
     public <T> Optional<T> getById(Class<T> tClass, long id) {
         Transaction transaction = null;
         Optional<T> optional;
-        try (Session session = getSession(Constants.LAB3_HBN_CFG)) {
+        try (Session session = getSession(Constants.LAB4_HBN_CFG)) {
             transaction = session.beginTransaction();
             optional = Optional.ofNullable(session.get(tClass, id));
             transaction.commit();
@@ -56,7 +52,7 @@ public class DataProvider implements IDataProvider {
     @Override
     public <T> boolean update(T object) {
         Transaction transaction = null;
-        try (Session session = getSession(Constants.LAB3_HBN_CFG)) {
+        try (Session session = getSession(Constants.LAB4_HBN_CFG)) {
             transaction = session.beginTransaction();
             session.update(object);
             transaction.commit();
@@ -74,7 +70,7 @@ public class DataProvider implements IDataProvider {
     @Override
     public <T> boolean delete(T object) {
         Transaction transaction = null;
-        try (Session session = getSession(Constants.LAB3_HBN_CFG)) {
+        try (Session session = getSession(Constants.LAB4_HBN_CFG)) {
             transaction = session.beginTransaction();
             session.delete(object);
             transaction.commit();
@@ -90,6 +86,7 @@ public class DataProvider implements IDataProvider {
     }
 
     Session getSession(String hbn_cnf){
+        logger.info("start getSession()");
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory(hbn_cnf);
         return sessionFactory.openSession();
     }
