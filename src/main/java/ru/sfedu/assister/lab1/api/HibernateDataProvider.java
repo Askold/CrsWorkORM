@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import ru.sfedu.assister.Constants;
+import ru.sfedu.assister.Utils.HibernateUtil;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,8 @@ public class HibernateDataProvider implements IHibernateDataProvider{
     @Override
     public Optional<String> getDatabaseSize(String hbn_cnf) {
         try (Session session = getSession(hbn_cnf)){
-            NativeQuery query1 = session.createNativeQuery(String.format(Constants.DATABASE_SIZE, Constants.DATABASE_NAME));
+            NativeQuery query1 = session.createNativeQuery(
+                    String.format(Constants.DATABASE_SIZE, Constants.DATABASE_NAME));
             List resultList = query1.getResultList();
             if (resultList == null){
                 return Optional.empty();
@@ -36,7 +38,8 @@ public class HibernateDataProvider implements IHibernateDataProvider{
     @Override
     public Optional<String> getTables(String hbn_cnf) {
         try (Session session = getSession(hbn_cnf)){
-            NativeQuery query1 = session.createNativeQuery(String.format(Constants.DATABASE_TABLES, Constants.DATABASE_NAME));
+            NativeQuery query1 = session.createNativeQuery(
+                    String.format(Constants.DATABASE_TABLES, Constants.DATABASE_NAME));
             List resultList = query1.getResultList();
             return getString(resultList);
         }
@@ -45,7 +48,8 @@ public class HibernateDataProvider implements IHibernateDataProvider{
     @Override
     public Optional<String> getTablesDatatype(String hbn_cnf) {
         try (Session session = getSession(hbn_cnf)){
-            NativeQuery query1 = session.createNativeQuery(String.format(Constants.DATABASE_TABLES_TYPE, Constants.DATABASE_NAME));
+            NativeQuery query1 = session.createNativeQuery(String.format(
+                    Constants.DATABASE_TABLES_TYPE, Constants.DATABASE_NAME));
             List resultList = query1.getResultList();
             return getString(resultList);
         }

@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.bson.Document;
 import ru.sfedu.assister.Constants;
+import ru.sfedu.assister.DataProviders.model.*;
 import ru.sfedu.assister.HistoryContent;
 import ru.sfedu.assister.Utils.ConfigurationUtil;
 import ru.sfedu.assister.lab1.model.*;

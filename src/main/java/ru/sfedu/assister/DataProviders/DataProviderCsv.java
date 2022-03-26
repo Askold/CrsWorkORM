@@ -10,9 +10,11 @@ import com.opencsv.exceptions.CsvRequiredFieldEmptyException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import ru.sfedu.assister.Constants;
+import ru.sfedu.assister.DataProviders.model.Trainer;
 import ru.sfedu.assister.HistoryContent;
 import ru.sfedu.assister.Utils.ConfigurationUtil;
 import ru.sfedu.assister.lab1.model.*;
+import ru.sfedu.assister.DataProviders.model.*;
 
 import java.io.*;
 import java.util.ArrayList;
